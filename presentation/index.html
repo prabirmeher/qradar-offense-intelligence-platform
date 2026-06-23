@@ -1,0 +1,1821 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI-powered SOC investigation platform for IBM QRadar — on-device LLM analysis, MITRE ATT&CK mapping, campaign detection, and full investigation workspace.">
+      
+      
+        <meta name="author" content="QRadar Offense Intelligence">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>QRadar Offense Intelligence — 30-Minute Presentation - QRadar Offense Intelligence App</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qradar-offense-intelligence-30-minute-presentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="QRadar Offense Intelligence App" class="md-header__button md-logo" aria-label="QRadar Offense Intelligence App" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QRadar Offense Intelligence App
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              QRadar Offense Intelligence — 30-Minute Presentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/prabirmeher/qradar-offense-intelligence-platform" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    qradar-offense-intelligence-platform
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../dashboard/" class="md-tabs__link">
+          
+  
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../settings/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Configuration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Feedback & Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="QRadar Offense Intelligence App" class="md-nav__button md-logo" aria-label="QRadar Offense Intelligence App" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    QRadar Offense Intelligence App
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/prabirmeher/qradar-offense-intelligence-platform" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    qradar-offense-intelligence-platform
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../investigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Investigation Workspace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mitre-attack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MITRE ATT&CK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../campaigns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Campaign Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../relationship-graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relationship Graph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics-sla/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & SLA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Offense Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feedback & Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slide-deck-outline-for-ciso-cto-product-leadership" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slide Deck Outline for CISO · CTO · Product Leadership
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slide-1-title-slide-030" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLIDE 1 — Title Slide (0:30)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="qradar-offense-intelligence-30-minute-presentation">QRadar Offense Intelligence — 30-Minute Presentation<a class="headerlink" href="#qradar-offense-intelligence-30-minute-presentation" title="Permanent link">&para;</a></h1>
+<h2 id="slide-deck-outline-for-ciso-cto-product-leadership">Slide Deck Outline for CISO · CTO · Product Leadership<a class="headerlink" href="#slide-deck-outline-for-ciso-cto-product-leadership" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Format:</strong> Copy each slide's content into PowerPoint or Google Slides.
+<strong>Timing guide:</strong> Each slide shows its target duration in <em>(italics)</em>.
+<strong>Speaker notes</strong> are below each slide's bullet points.
+<strong>Suggested visual</strong> is noted at the end of each slide.</p>
+</blockquote>
+<hr />
+<hr />
+<h2 id="slide-1-title-slide-030">SLIDE 1 — Title Slide <em>(0:30)</em><a class="headerlink" href="#slide-1-title-slide-030" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h1 id="qradar-offense-intelligence">QRadar Offense Intelligence<a class="headerlink" href="#qradar-offense-intelligence" title="Permanent link">&para;</a></h1>
+<h3 id="ai-powered-soc-investigation-on-device-zero-data-egress">AI-Powered SOC Investigation — On-Device · Zero Data Egress<a class="headerlink" href="#ai-powered-soc-investigation-on-device-zero-data-egress" title="Permanent link">&para;</a></h3>
+<p><strong>Sub-line:</strong></p>
+<blockquote>
+<p>Structured threat analysis in 90 seconds. No cloud. No egress. No compromise.</p>
+</blockquote>
+<p><strong>Your name · Date · Confidential</strong></p>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"Today I'm going to show you something I've been building by looking hard at the real friction points SOC analysts face every day with QRadar — and asking: what if the AI did the hard part, but never left the building?"</p>
+</blockquote>
+<p><strong>Visual:</strong> Full-bleed screenshot of the Offense Detail page (<code>hero-offense-detail.png</code>) with a dark overlay behind the title text.</p>
+<hr />
+<hr />
+<h2 id="slide-2-the-problem-soc-triage-is-a-human-bottleneck-200">SLIDE 2 — The Problem: SOC Triage is a Human Bottleneck <em>(2:00)</em><a class="headerlink" href="#slide-2-the-problem-soc-triage-is-a-human-bottleneck-200" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="every-qradar-offense-is-a-question-that-needs-an-answer">Every QRadar offense is a question that needs an answer<a class="headerlink" href="#every-qradar-offense-is-a-question-that-needs-an-answer" title="Permanent link">&para;</a></h3>
+<p><strong>Bullets:</strong>
+- QRadar surfaces raw metadata: rule names, source IPs, event counts
+- Turning that into a verdict requires an analyst to <strong>manually</strong> query events, read rule XML, consult runbooks, and cross-reference history
+- At scale: <strong>30 minutes to several hours per offense</strong>
+- The analyst is the bottleneck — not the detection engine</p>
+<p><strong>The metric that matters:</strong></p>
+<blockquote>
+<p>Mean Time to Respond (MTTR) is driven by triage time, not detection time.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"QRadar is excellent at detecting. The problem starts the moment an offense appears in the queue. The analyst opens it and sees a rule name and an IP address. What they need is a verdict — is this real? What happened? What do I do next? Getting there today is a completely manual process. Let me show you what that costs."</p>
+</blockquote>
+<p><strong>Visual:</strong> A simple two-column diagram — left: "What QRadar gives you" (rule name, IP, event count) → right: "What you need to act" (verdict, kill chain, recommended actions). Red arrow showing the manual gap.</p>
+<hr />
+<hr />
+<h2 id="slide-3-the-status-quo-at-scale-130">SLIDE 3 — The Status Quo at Scale <em>(1:30)</em><a class="headerlink" href="#slide-3-the-status-quo-at-scale-130" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="the-math-doesnt-work-at-scale">The math doesn't work at scale<a class="headerlink" href="#the-math-doesnt-work-at-scale" title="Permanent link">&para;</a></h3>
+<p><strong>Data points (use large typography):</strong>
+- <strong>30–120 min</strong> average triage time per offense
+- <strong>Dozens to hundreds</strong> of offenses per day in a mature SOC
+- <strong>1 analyst</strong> can only deeply investigate 4–8 offenses per shift
+- Result: <strong>a growing backlog of uninvestigated alerts</strong></p>
+<p><strong>The real cost:</strong></p>
+<blockquote>
+<p>Alert fatigue → analysts skip investigation → threats are missed.
+Backlog → SLA breaches → compliance risk.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"This isn't a hypothetical. Any SOC running QRadar at scale lives with this. The queue grows faster than analysts can work through it. And when analysts are overwhelmed, they start closing things without investigating — which is exactly the behavior that lets real threats slip through."</p>
+</blockquote>
+<p><strong>Visual:</strong> A simple queue diagram — offenses piling up on the left, one analyst on the right. Red "SLA breach" label on the oldest offenses.</p>
+<hr />
+<hr />
+<h2 id="slide-4-why-existing-ai-solutions-dont-solve-it-200">SLIDE 4 — Why Existing AI Solutions Don't Solve It <em>(2:00)</em><a class="headerlink" href="#slide-4-why-existing-ai-solutions-dont-solve-it-200" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="cloud-ai-is-blocked-by-the-data-you-cant-share">Cloud AI is blocked by the data you can't share<a class="headerlink" href="#cloud-ai-is-blocked-by-the-data-you-cant-share" title="Permanent link">&para;</a></h3>
+<p><strong>The three blockers:</strong>
+1. <strong>Data egress</strong> — offense events contain IPs, usernames, payloads. Sending them to a cloud API violates data residency laws, classified environment policies, and customer data agreements.
+2. <strong>Air-gapped environments</strong> — government, financial, healthcare customers can't reach external APIs at all.
+3. <strong>Vendor lock-in &amp; cost</strong> — pay-per-token pricing on hundreds of offenses per day adds up fast.</p>
+<p><strong>The result:</strong></p>
+<blockquote>
+<p>Security teams that most need AI assistance are the ones least able to use it.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"The obvious answer is 'use an LLM API.' But the moment you do that, you're sending your offense events — your source IPs, your usernames, your event payloads — to a third-party server. That's a non-starter for regulated industries. For classified environments, it's simply not possible. I built this with that constraint as a first principle, not an afterthought."</p>
+</blockquote>
+<p><strong>Visual:</strong> A diagram showing the cloud AI data flow with a red "BLOCKED" symbol. Then a second diagram showing on-device inference with a green "COMPLIANT" label.</p>
+<hr />
+<hr />
+<h2 id="slide-5-introducing-qradar-offense-intelligence-130">SLIDE 5 — Introducing QRadar Offense Intelligence <em>(1:30)</em><a class="headerlink" href="#slide-5-introducing-qradar-offense-intelligence-130" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="the-intelligence-layer-qradar-was-always-missing">The intelligence layer QRadar was always missing<a class="headerlink" href="#the-intelligence-layer-qradar-was-always-missing" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong></p>
+<blockquote>
+<p>A native QRadar application that embeds an on-device AI analysis engine, MITRE ATT&amp;CK mapping, attack campaign detection, and a full investigation workspace — entirely within the QRadar appliance.</p>
+</blockquote>
+<p><strong>Six capabilities in one platform:</strong>
+1. On-Device AI Analysis (Qwen3.5-9B · llama.cpp)
+2. MITRE ATT&amp;CK Automatic Technique Tagging
+3. Attack Campaign Detection
+4. Interactive Relationship Graph
+5. Investigation Workspace (Notes · IOCs · Tasks · Playbooks)
+6. SLA Management &amp; Analytics</p>
+<p><strong>The constraint it was built for:</strong></p>
+<blockquote>
+<p><strong>Zero data egress.</strong> Everything runs on the QRadar appliance itself.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"Let me walk you through what I built. Six integrated capabilities. One platform. And the LLM never makes a network call."</p>
+</blockquote>
+<p><strong>Visual:</strong> A clean product overview diagram — QRadar appliance box containing the six capability icons in a honeycomb or grid layout.</p>
+<hr />
+<hr />
+<h2 id="slide-6-how-it-works-architecture-in-one-slide-200">SLIDE 6 — How It Works: Architecture in One Slide <em>(2:00)</em><a class="headerlink" href="#slide-6-how-it-works-architecture-in-one-slide-200" title="Permanent link">&para;</a></h2>
+<p><em>[For CTO / Engineering audience — can go deeper in Q&amp;A]</em></p>
+<p><strong>Headline:</strong></p>
+<h3 id="local-llm-inference-on-the-qradar-appliance">Local LLM inference on the QRadar appliance<a class="headerlink" href="#local-llm-inference-on-the-qradar-appliance" title="Permanent link">&para;</a></h3>
+<p><strong>Architecture diagram components:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>QRadar SIEM
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├── QRadar REST API ──► Rule XML fetch
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    │                  ──► AQL event queries
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    │                  ──► Offense sync
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    └── QRadar App Container (8 GB)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>            ├── Flask backend (Python)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>            │       ├── 5-phase analysis pipeline
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>            │       ├── Campaign detection (BFS graph)
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>            │       ├── Relationship scoring engine
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>            │       └── Job scheduler
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            │
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>            ├── llama.cpp server
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>            │       └── Qwen3.5-9B Q5 (6.1 GB, on-device)
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>            │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>            ├── SQLite local database
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>            │       ├── offense cache + relationships
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            │       ├── MITRE ATT&amp;CK knowledge base
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>            │       └── investigation workspace data
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>            │
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>            └── React frontend
+</code></pre></div>
+<p><strong>Key engineering decisions:</strong>
+- <strong>Qwen3.5-9B Q5</strong> — 6.1 GB quantized model, strong instruction following, fits in 8 GB container
+- <strong>llama.cpp</strong> — zero-dependency inference, runs on CPU without GPU
+- <strong>SQLite</strong> — no external database, no config, survives appliance restarts
+- <strong>BFS campaign detection</strong> — deterministic, no LLM needed, runs in seconds
+- <strong>Pre-computed relationship scores</strong> — graph renders instantly at query time</p>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"The model runs in llama.cpp directly in the app container. No separate inference server, no GPU required. The entire analysis pipeline — rule XML parsing, event sampling, historical context, false positive signals, LLM inference — runs in under two minutes. For the campaign detection engine I deliberately avoided using the LLM — it's pure graph computation with BFS, which means it's fast, deterministic, and free to run as often as you want."</p>
+</blockquote>
+<p><strong>Visual:</strong> The architecture diagram above, rendered cleanly.</p>
+<hr />
+<hr />
+<h2 id="slide-7-feature-on-device-ai-analysis-300">SLIDE 7 — Feature: On-Device AI Analysis <em>(3:00)</em><a class="headerlink" href="#slide-7-feature-on-device-ai-analysis-300" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="a-structured-verdict-in-90-seconds-without-sending-data-anywhere">A structured verdict in 90 seconds — without sending data anywhere<a class="headerlink" href="#a-structured-verdict-in-90-seconds-without-sending-data-anywhere" title="Permanent link">&para;</a></h3>
+<p><strong>The 5-phase pipeline:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Rule XML Fetch</td>
+<td>Pulls the full detection rule XML from QRadar API — the actual conditions that fired</td>
+</tr>
+<tr>
+<td>2. Event Sampling</td>
+<td>AQL queries for offense events + source IP timeline (deduplicated)</td>
+</tr>
+<tr>
+<td>3. Historical Context</td>
+<td>Rule fire frequency, source offense history from local cache</td>
+</tr>
+<tr>
+<td>4. FP Pre-screening</td>
+<td>R2R directionality, management IPs, reference set exclusions — pre-computed signals</td>
+</tr>
+<tr>
+<td>5. LLM Inference</td>
+<td>Structured prompt → Qwen3.5-9B → 7-section analysis</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The 7-section output every analyst gets:</strong>
+- <strong>VERDICT</strong> — True Positive / Likely False Positive / Needs Investigation
+- <strong>Why This Rule Fired</strong> — specific rule conditions and signals, not generic text
+- <strong>Severity Assessment</strong> — grounded in event volume, magnitude, credibility
+- <strong>Likely Attack Vector</strong> — technique + evidence citations
+- <strong>Recommended Immediate Actions</strong> — 3–5 specific steps (auto-loaded as response tasks)
+- <strong>False Positive Tuning</strong> — exact rule and reference set names to tune
+- <strong>Investigation Steps</strong> — forensic steps citing actual IPs, users, payloads</p>
+<p><strong>The number that matters:</strong></p>
+<blockquote>
+<p><strong>90 seconds</strong> vs. <strong>30–120 minutes</strong> of manual analysis.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"The key insight is in Phase 1. Most LLM security tools send the offense description to the model and ask it to guess what happened. We pull the full rule XML — the actual detection logic — and inject it. That's why the output says things like 'this rule fired because the source IP matched reference set XYZ on port 443' instead of 'this appears to be suspicious traffic.' The model has the evidence. It's not guessing."</p>
+</blockquote>
+<p><strong>Visual:</strong> Screenshot of <code>ai-analysis-result.png</code> and <code>ai-analysis-queue.png</code> side by side.</p>
+<hr />
+<hr />
+<h2 id="slide-8-feature-mitre-attck-mapping-200">SLIDE 8 — Feature: MITRE ATT&amp;CK Mapping <em>(2:00)</em><a class="headerlink" href="#slide-8-feature-mitre-attck-mapping-200" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="every-offense-tagged-to-the-kill-chain-automatically">Every offense tagged to the kill chain — automatically<a class="headerlink" href="#every-offense-tagged-to-the-kill-chain-automatically" title="Permanent link">&para;</a></h3>
+<p><strong>How it works:</strong>
+- Nightly scheduled job sends offense + AI verdict to the on-device LLM
+- Model returns ATT&amp;CK technique IDs
+- Each ID is <strong>validated against a local ATT&amp;CK knowledge base</strong> — hallucinated IDs are discarded
+- Results stored with technique name, tactic, confidence score, and reasoning</p>
+<p><strong>Analyst controls:</strong>
+- Override any AI-assigned technique with the correct one
+- <strong>Promote verified mappings to a shared team knowledge base</strong> — QRadar category → ATT&amp;CK technique
+- Shared mappings improve future auto-tagging for the whole team</p>
+<p><strong>Air-gap support:</strong>
+- ATT&amp;CK bundle can be uploaded manually — no internet access required at tagging time</p>
+<p><strong>Visual:</strong></p>
+<blockquote>
+<p>Kill chain bar on offense detail: <code>[Reconnaissance T1595] → [Initial Access T1078] → [Lateral Movement T1021]</code></p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"Because every offense is tagged, when you look at a campaign you get the aggregate kill chain across all member offenses. You can see at a glance: this attacker started with reconnaissance, got initial access through valid accounts, and is now moving laterally. That context used to require an analyst to manually correlate. Now it's automatic."</p>
+</blockquote>
+<p><strong>Visual:</strong> Screenshot of <code>mitre-kill-chain.png</code>.</p>
+<hr />
+<hr />
+<h2 id="slide-9-feature-attack-campaign-detection-200">SLIDE 9 — Feature: Attack Campaign Detection <em>(2:00)</em><a class="headerlink" href="#slide-9-feature-attack-campaign-detection-200" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="sophisticated-attackers-generate-many-offenses-we-connect-them">Sophisticated attackers generate many offenses. We connect them.<a class="headerlink" href="#sophisticated-attackers-generate-many-offenses-we-connect-them" title="Permanent link">&para;</a></h3>
+<p><strong>The problem it solves:</strong></p>
+<blockquote>
+<p>A persistent attacker generates 40 offenses over two weeks — each one looking isolated when viewed alone. Campaign Detection finds the pattern.</p>
+</blockquote>
+<p><strong>How detection works:</strong>
+1. Build an adjacency graph: offenses connected by shared detection rules OR shared attacker source
+2. BFS walk finds connected components — clusters of related offenses
+3. Filter: minimum 3 offenses to form a campaign
+4. Compute: kill chain progression, severity, analyst assignments, lateral movement flags</p>
+<p><strong>What you see:</strong>
+- Named campaign with kill chain progression bar
+- <code>[Recon] → [Initial Access] → [Lateral Movement]</code>
+- <strong>⚠ Lateral movement warning</strong> when hop chains are confirmed
+- All member offenses linked in one view</p>
+<p><strong>Key property:</strong></p>
+<blockquote>
+<p>Pure graph computation — no LLM. Fast, deterministic, runs nightly automatically.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"This is one of my favorite parts of the platform. Campaign detection doesn't need the LLM at all. It's a BFS on a graph where edges represent shared rules or shared attacker sources. It runs in seconds and it finds patterns that are genuinely invisible when you're looking at one offense at a time. The lateral movement detection is particularly powerful — it compares the destination IPs of one offense's events against the source IPs of the next offense, which is a direct signal of a hop chain."</p>
+</blockquote>
+<p><strong>Visual:</strong> Screenshot of <code>campaigns-list.png</code> and <code>campaign-detail.png</code>.</p>
+<hr />
+<hr />
+<h2 id="slide-10-feature-relationship-graph-200">SLIDE 10 — Feature: Relationship Graph <em>(2:00)</em><a class="headerlink" href="#slide-10-feature-relationship-graph-200" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="five-investigative-lenses-on-how-offenses-connect">Five investigative lenses on how offenses connect<a class="headerlink" href="#five-investigative-lenses-on-how-offenses-connect" title="Permanent link">&para;</a></h3>
+<p><strong>The five lenses:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Lens</th>
+<th>The question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rule Topology</td>
+<td>Which other offenses share the same detection rules?</td>
+</tr>
+<tr>
+<td>Attacker Topology</td>
+<td>What else has this attacker done in the environment?</td>
+</tr>
+<tr>
+<td>Target Topology</td>
+<td>What other offenses targeted the same network segment?</td>
+</tr>
+<tr>
+<td>Campaign Topology</td>
+<td>Which offenses share categories in the same time window?</td>
+</tr>
+<tr>
+<td>Lateral Movement</td>
+<td>Is there a directed hop chain — has the attacker moved?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Engineering note:</strong></p>
+<blockquote>
+<p>Graph data is <strong>pre-computed during AI analysis</strong> and stored. Rendering is instant at query time — no computation on graph load.</p>
+</blockquote>
+<p><strong>Smart recommendations:</strong></p>
+<blockquote>
+<p>When you open the graph, the platform recommends the strongest lens for that offense automatically.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"Every analyst has looked at an offense and wondered 'what else should I be looking at?' The relationship graph answers that question visually. The lateral movement lens is the most operationally significant — it's a directed timeline showing you exactly which IP hopped from which offense to the next. You can trace an attacker's path through the environment."</p>
+</blockquote>
+<p><strong>Visual:</strong> Screenshot of <code>relationship-graph-rule.png</code> and <code>relationship-graph-lateral.png</code>.</p>
+<hr />
+<hr />
+<h2 id="slide-11-feature-investigation-workspace-130">SLIDE 11 — Feature: Investigation Workspace <em>(1:30)</em><a class="headerlink" href="#slide-11-feature-investigation-workspace-130" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="everything-an-analyst-needs-without-leaving-qradar">Everything an analyst needs — without leaving QRadar<a class="headerlink" href="#everything-an-analyst-needs-without-leaving-qradar" title="Permanent link">&para;</a></h3>
+<p><strong>What's inside every offense:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>What it provides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notes</td>
+<td>Rich-text collaborative notes — synced back to QRadar offense notes</td>
+</tr>
+<tr>
+<td>Files</td>
+<td>Evidence attachments (logs, screenshots, PDFs) tied to the offense</td>
+</tr>
+<tr>
+<td>Artifacts</td>
+<td>IOC tracker: IPs, domains, hashes, URLs, users, emails</td>
+</tr>
+<tr>
+<td>Tasks</td>
+<td>AI-generated tasks + SOP playbook templates + manual checklist</td>
+</tr>
+<tr>
+<td>Audit Trail</td>
+<td>Every action, every actor, every timestamp — tamper-evident</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AI-generated response tasks:</strong></p>
+<blockquote>
+<p>After AI analysis, one click loads categorized tasks:
+<code>[Immediate]</code> · <code>[Investigation]</code> · <code>[Tuning]</code></p>
+</blockquote>
+<p><strong>SOP Playbooks:</strong></p>
+<blockquote>
+<p>Define templates per offense type or name pattern — load the full playbook in one click.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"This replaces the spreadsheets, the shared OneNote, the Slack threads, the email chains that analysts use today to track investigations. Everything is bound to the offense, attributed to the analyst, and timestamped. The audit trail alone has compliance value — every CISO I've spoken to has asked 'how do we prove what we did and when?'"</p>
+</blockquote>
+<p><strong>Visual:</strong> Screenshot of <code>investigation-workspace.png</code> and <code>response-tasks.png</code>.</p>
+<hr />
+<hr />
+<h2 id="slide-12-feature-sla-management-analytics-130">SLIDE 12 — Feature: SLA Management &amp; Analytics <em>(1:30)</em><a class="headerlink" href="#slide-12-feature-sla-management-analytics-130" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="visibility-into-team-performance-and-early-warning-before-breaches">Visibility into team performance — and early warning before breaches<a class="headerlink" href="#visibility-into-team-performance-and-early-warning-before-breaches" title="Permanent link">&para;</a></h3>
+<p><strong>Operational metrics tracked:</strong>
+- <strong>MTTD</strong> — Mean Time to Detect (time from offense start to first analyst action)
+- <strong>MTTR</strong> — Mean Time to Respond (offense creation to closure)
+- <strong>MTTA</strong> — Mean Time to Acknowledge (creation to first assignment)</p>
+<p><strong>SLA enforcement:</strong>
+- Configurable SLA thresholds by severity (default: Critical=4h, High=24h, Medium=72h, Low=7d)
+- Per-offense SLA indicator with time remaining and % consumed
+- <strong>At-risk notifications</strong> at 80% consumption — before the breach, not after
+- Notification bell with dismissal workflow</p>
+<p><strong>Manager visibility:</strong>
+- Analyst workload distribution bar chart
+- Stalled cases (investigations that stopped progressing)
+- Age distribution of open offenses
+- Top attack sources (repeat attacker IPs)</p>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"For the CISO and SOC manager, this is where accountability lives. The at-risk notification is a particularly important design choice — you get alerted at 80% of the SLA budget, not when it's already breached. That gives a manager time to reassign or escalate before the SLA is violated."</p>
+</blockquote>
+<p><strong>Visual:</strong> Screenshot of <code>analytics-dashboard.png</code> and <code>sla-notifications.png</code>.</p>
+<hr />
+<hr />
+<h2 id="slide-13-the-zero-data-egress-guarantee-200">SLIDE 13 — The Zero Data Egress Guarantee <em>(2:00)</em><a class="headerlink" href="#slide-13-the-zero-data-egress-guarantee-200" title="Permanent link">&para;</a></h2>
+<p><em>[Key slide for CISO audience]</em></p>
+<p><strong>Headline:</strong></p>
+<h3 id="the-ai-model-never-makes-a-network-call">The AI model never makes a network call<a class="headerlink" href="#the-ai-model-never-makes-a-network-call" title="Permanent link">&para;</a></h3>
+<p><strong>What "zero data egress" means:</strong></p>
+<blockquote>
+<p>The Qwen3.5-9B model runs inside the QRadar app container on the appliance itself. Offense data, event payloads, source IPs, usernames, and rule conditions are assembled into a prompt and passed to a local llama.cpp process. <strong>Nothing leaves the appliance.</strong></p>
+</blockquote>
+<p><strong>Why this matters for your customers:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data residency / GDPR / NIS2</td>
+<td>Compliant — no data leaves customer environment</td>
+</tr>
+<tr>
+<td>Classified / government networks</td>
+<td>Supported — air-gapped deployment works</td>
+</tr>
+<tr>
+<td>Financial sector data isolation</td>
+<td>Supported — no third-party processor relationship</td>
+</tr>
+<tr>
+<td>On-premise security policy</td>
+<td>Supported — QRadar appliance is already on-prem</td>
+</tr>
+<tr>
+<td>No API keys, no external accounts</td>
+<td>Correct — no external service dependency</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The competitive moat:</strong></p>
+<blockquote>
+<p>Every cloud-based security AI product is blocked by the same data sharing problem. We are not.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"This is the capability that unlocks a market that cloud AI can never reach. Government agencies running on classified networks. Financial institutions with strict data isolation requirements. Healthcare customers with PHI concerns. These are exactly the customers who have the most sophisticated QRadar deployments — and the most acute need for AI-assisted investigation. The zero egress architecture isn't a limitation. It's the product's most important feature."</p>
+</blockquote>
+<p><strong>Visual:</strong> A clear diagram: QRadar appliance (on-prem box) → local llama.cpp → analysis result. A red 'X' through any arrow going outside the appliance boundary. Green lock icon.</p>
+<hr />
+<hr />
+<h2 id="slide-14-impact-what-this-changes-for-a-soc-200">SLIDE 14 — Impact: What This Changes for a SOC <em>(2:00)</em><a class="headerlink" href="#slide-14-impact-what-this-changes-for-a-soc-200" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="the-numbers-that-make-the-case">The numbers that make the case<a class="headerlink" href="#the-numbers-that-make-the-case" title="Permanent link">&para;</a></h3>
+<p><strong>Before vs. After:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Before</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time to first verdict on offense</td>
+<td>30–120 min</td>
+<td>~90 seconds</td>
+</tr>
+<tr>
+<td>MITRE ATT&amp;CK tagging</td>
+<td>Manual (never done)</td>
+<td>Automatic (nightly)</td>
+</tr>
+<tr>
+<td>Campaign detection</td>
+<td>Never (too manual)</td>
+<td>Automatic (nightly BFS)</td>
+</tr>
+<tr>
+<td>Investigation documentation</td>
+<td>Spreadsheets / email / Slack</td>
+<td>Structured workspace in QRadar</td>
+</tr>
+<tr>
+<td>SLA visibility</td>
+<td>Offline reporting</td>
+<td>Real-time per-offense indicator</td>
+</tr>
+<tr>
+<td>Air-gapped AI analysis</td>
+<td>Impossible</td>
+<td>Fully supported</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The analyst impact:</strong></p>
+<blockquote>
+<p>An analyst who previously triaged 4–8 offenses per shift can now <strong>review AI verdicts</strong> for dozens, spending deep investigation time only on confirmed threats.</p>
+</blockquote>
+<p><strong>The manager impact:</strong></p>
+<blockquote>
+<p>MTTR reduction is directly visible in the Analytics dashboard. Stalled cases and SLA at-risk are surfaced proactively.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"The 90-second number is real — that's measured wall clock time on the QRadar appliance. The analyst doesn't have to query events, read rule logic, or consult runbooks. They open the offense, see a verdict, see the evidence, and see recommended actions. For false positives, they close with one click. For true positives, they already have their investigation tasks queued. The leverage is significant."</p>
+</blockquote>
+<p><strong>Visual:</strong> A before/after comparison table (above) with color coding — red for before, green for after.</p>
+<hr />
+<hr />
+<h2 id="slide-15-supported-deployment-environments-100">SLIDE 15 — Supported Deployment Environments <em>(1:00)</em><a class="headerlink" href="#slide-15-supported-deployment-environments-100" title="Permanent link">&para;</a></h2>
+<p><em>[Practical details for CTO/CISO audience]</em></p>
+<p><strong>Headline:</strong></p>
+<h3 id="deployable-anywhere-qradar-runs">Deployable anywhere QRadar runs<a class="headerlink" href="#deployable-anywhere-qradar-runs" title="Permanent link">&para;</a></h3>
+<p><strong>Requirements:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QRadar version</td>
+<td>7.5.0 UP12 and later</td>
+</tr>
+<tr>
+<td>App container memory</td>
+<td>8 GB allocated</td>
+</tr>
+<tr>
+<td>Model download (one-time)</td>
+<td>huggingface.co — or upload bundle manually</td>
+</tr>
+<tr>
+<td>Network at runtime</td>
+<td>None — all inference is local</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>Not required — CPU inference via llama.cpp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Air-gap deployment:</strong></p>
+<blockquote>
+<p>Download the Qwen3 model file and the MITRE ATT&amp;CK STIX bundle on a connected machine, transfer to the appliance, upload via the Settings UI. No internet access needed after initial setup.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"The only network dependency is the one-time model download. After that, the app runs indefinitely with no external connectivity. For air-gapped customers, we support uploading both the model and the ATT&amp;CK bundle from local storage."</p>
+</blockquote>
+<p><strong>Visual:</strong> A simple checklist of deployment steps with green checkmarks.</p>
+<hr />
+<hr />
+<h2 id="slide-16-screenshots-gallery-130">SLIDE 16 — Screenshots Gallery <em>(1:30)</em><a class="headerlink" href="#slide-16-screenshots-gallery-130" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="a-look-at-the-platform">A look at the platform<a class="headerlink" href="#a-look-at-the-platform" title="Permanent link">&para;</a></h3>
+<p><em>[Use this slide as a visual anchor / demo transition — show 4 screenshots in a 2×2 grid]</em></p>
+<p><strong>Four screenshots to use:</strong>
+1. <code>hero-offense-detail.png</code> — AI verdict + kill chain + lifecycle stepper
+2. <code>campaigns-list.png</code> — Campaign detection with kill chain bars
+3. <code>relationship-graph-lateral.png</code> — Lateral movement graph
+4. <code>analytics-dashboard.png</code> — Analytics + SLA metrics</p>
+<p><strong>Caption for each:</strong>
+1. <em>"AI verdict, MITRE kill chain, lifecycle stage — one screen."</em>
+2. <em>"Offense clusters grouped into named attack campaigns."</em>
+3. <em>"Directed hop chain — attacker lateral movement made visible."</em>
+4. <em>"MTTD, MTTR, MTTA trends and analyst workload at a glance."</em></p>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"Let me pause here and just show you what the platform looks like. [Walk through each screenshot.] This is running on QRadar today. The AI analysis tab shows the verdict first, then the full 7-section analysis below. The kill chain bar auto-populated from MITRE tagging. The campaign banner appeared automatically when the nightly detection job found that this offense belongs to a larger attack pattern."</p>
+</blockquote>
+<p><strong>Visual:</strong> 2×2 screenshot grid.</p>
+<hr />
+<hr />
+<h2 id="slide-17-what-this-enables-beyond-today-200">SLIDE 17 — What This Enables Beyond Today <em>(2:00)</em><a class="headerlink" href="#slide-17-what-this-enables-beyond-today-200" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="the-foundation-for-the-next-generation-of-soc-automation">The foundation for the next generation of SOC automation<a class="headerlink" href="#the-foundation-for-the-next-generation-of-soc-automation" title="Permanent link">&para;</a></h3>
+<p><strong>What you now have that didn't exist before:</strong></p>
+<ul>
+<li><strong>A structured evidence corpus</strong> — every offense has a machine-readable verdict, technique tags, and relationship scores. This is training data, search data, and reporting data.</li>
+<li><strong>Deterministic campaign IDs</strong> — stable, hashable cluster identifiers enable tracking campaigns across re-runs and reporting to executive stakeholders.</li>
+<li><strong>A shared team knowledge base</strong> — analyst overrides promote mappings to the team; over time the system gets smarter from human feedback.</li>
+<li><strong>A compliance audit trail</strong> — every action attributed and timestamped. Regulators ask "what did you do when the breach happened?" — now there's an answer.</li>
+</ul>
+<p><strong>Near-term directions:</strong>
+- Automated response: AI verdict → auto-close confirmed false positives (with configurable thresholds)
+- Cross-offense search: "find all offenses where AI assessment was T1078 in the last 30 days"
+- Executive reporting: auto-generated weekly campaign briefing from campaign data</p>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"What I've built is also a platform. The structured data it produces — verdicts, technique tags, relationship scores, audit trails — is something the organization didn't have before. That opens doors for automated response, executive reporting, and ML-based pattern detection that weren't possible when every offense was just a row in a table."</p>
+</blockquote>
+<p><strong>Visual:</strong> A roadmap arrow or capability growth diagram — "Today" on the left, "Near-term" in the middle, "Future" on the right.</p>
+<hr />
+<hr />
+<h2 id="slide-18-roadmap-200">SLIDE 18 — Roadmap <em>(2:00)</em><a class="headerlink" href="#slide-18-roadmap-200" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="whats-next">What's next<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h3>
+<p><strong>Potential roadmap items (prioritize with product):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Capability</th>
+<th>Audience Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High</td>
+<td>Auto-close confirmed false positives (AI verdict + configurable threshold)</td>
+<td>Analyst throughput</td>
+</tr>
+<tr>
+<td>High</td>
+<td>Cross-offense natural language search ("find all T1078 offenses in 30 days")</td>
+<td>Analyst investigation</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>Weekly AI-generated campaign briefing (PDF for CISO)</td>
+<td>Executive reporting</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>Real-time offense streaming (webhook instead of polling)</td>
+<td>Analyst latency</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>SOAR integration — push AI verdict + tasks to external ticketing</td>
+<td>SOAR customers</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>Multi-tenant support (MSP deployments)</td>
+<td>MSP/MSSP market</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>Model selection — allow swapping to a larger or domain-fine-tuned model</td>
+<td>Enterprise flexibility</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What I'd prioritize first:</strong></p>
+<blockquote>
+<p>Auto-close on confirmed false positives. The AI verdict is already there — the next step is acting on it automatically with analyst-configurable confidence thresholds.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"I want to be upfront that this is a starting point for the roadmap conversation, not a committed plan. But I'd argue the highest-leverage next step is automated false positive closure. If the AI says 'LIKELY FALSE POSITIVE' with high confidence, and the analyst has pre-approved auto-close for that rule, the offense closes itself. That's where the MTTR improvement really compounds."</p>
+</blockquote>
+<p><strong>Visual:</strong> A Kanban-style roadmap board or a simple prioritized list with status indicators.</p>
+<hr />
+<hr />
+<h2 id="slide-19-why-now-130">SLIDE 19 — Why Now <em>(1:30)</em><a class="headerlink" href="#slide-19-why-now-130" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="the-timing-is-right-and-the-window-wont-stay-open">The timing is right — and the window won't stay open<a class="headerlink" href="#the-timing-is-right-and-the-window-wont-stay-open" title="Permanent link">&para;</a></h3>
+<p><strong>Three converging trends:</strong></p>
+<ol>
+<li>
+<p><strong>LLMs are small enough to run on-prem</strong>
+   Qwen3.5-9B Q5 is 6.1 GB and delivers analysis quality that would have required a 70B+ model two years ago. On-device inference is no longer a research idea — it runs in production today.</p>
+</li>
+<li>
+<p><strong>Regulators are tightening data residency requirements</strong>
+   GDPR, NIS2, DORA, and sector-specific regulations are making cloud AI an increasingly hard sell for security use cases. The on-premise architecture is a regulatory advantage that compounds over time.</p>
+</li>
+<li>
+<p><strong>SOC analyst shortage is not going away</strong>
+   The global cybersecurity talent gap is well documented. AI-assisted investigation doesn't replace analysts — it makes each analyst capable of handling significantly more throughput.</p>
+</li>
+</ol>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"Two years ago this wasn't possible — the models were too large and too slow. Today, we can run a model that produces genuinely useful analysis on commodity server hardware, inside an existing QRadar deployment, with no infrastructure changes. That window opened recently and it won't stay exclusive for long."</p>
+</blockquote>
+<p><strong>Visual:</strong> Three-panel graphic with trend lines or icons for each converging trend.</p>
+<hr />
+<hr />
+<h2 id="slide-20-call-to-action-qa-130">SLIDE 20 — Call to Action / Q&amp;A <em>(1:30)</em><a class="headerlink" href="#slide-20-call-to-action-qa-130" title="Permanent link">&para;</a></h2>
+<p><strong>Headline:</strong></p>
+<h3 id="what-im-asking-for">What I'm asking for<a class="headerlink" href="#what-im-asking-for" title="Permanent link">&para;</a></h3>
+<p><strong>Three asks — tailored by audience:</strong></p>
+<p><strong>For Product:</strong></p>
+<blockquote>
+<p>Let's align on the roadmap priorities — specifically auto-close and executive reporting. I want to ship these in the next quarter.</p>
+</blockquote>
+<p><strong>For CTO:</strong></p>
+<blockquote>
+<p>I'd like to schedule a deeper architecture review. There are a few interesting engineering decisions (relationship scoring weights, campaign BFS tuning) worth discussing in detail.</p>
+</blockquote>
+<p><strong>For CISO:</strong></p>
+<blockquote>
+<p>I'd like to get this in front of one customer who is blocked by cloud AI data residency requirements. This is the product that unlocks that conversation.</p>
+</blockquote>
+<hr />
+<p><strong>Summary in three sentences:</strong></p>
+<blockquote>
+<p>QRadar Offense Intelligence gives analysts an AI-structured verdict in 90 seconds instead of 30–120 minutes — and it does it without sending a single byte of offense data outside the customer's environment. It ships with MITRE ATT&amp;CK tagging, campaign detection, relationship graphing, a full investigation workspace, and SLA analytics. The zero-egress architecture is the moat: it's the only AI investigation platform that works in regulated, classified, and air-gapped environments.</p>
+</blockquote>
+<p><strong>Speaker notes:</strong></p>
+<blockquote>
+<p>"I built this because I know QRadar customers and I know the pain. The platform is running. The model is working. I want to talk about how we take this forward together."</p>
+</blockquote>
+<p><strong>Visual:</strong> Clean closing slide with product screenshot and the three asks as three distinct card elements.</p>
+<hr />
+<hr />
+<h1 id="appendix">APPENDIX<a class="headerlink" href="#appendix" title="Permanent link">&para;</a></h1>
+<h2 id="appendix-a-detailed-technical-qa-prep">Appendix A — Detailed Technical Q&amp;A Prep<a class="headerlink" href="#appendix-a-detailed-technical-qa-prep" title="Permanent link">&para;</a></h2>
+<p><strong>Q: Why Qwen3.5-9B and not a larger model?</strong></p>
+<blockquote>
+<p>9B parameters at Q5 quantization is 6.1 GB — it fits in the 8 GB container allocation with headroom. It produces quality analysis in 60–90 seconds on CPU. A larger model (e.g. 70B) would require 20–40 GB and take 10–20 minutes per inference, making the analyst experience unacceptable. Qwen3.5 specifically was chosen for strong instruction following and structured output compliance.</p>
+</blockquote>
+<p><strong>Q: What happens if the LLM produces a wrong verdict?</strong></p>
+<blockquote>
+<p>The verdict is a recommendation, not an automated action — the analyst makes the final call. False positive pre-screening (Phase 4) grounds the verdict in pre-computed signals so the model isn't making unsupported claims. Analyst override is always available. In practice, the value is in the 90-second analysis vs. 30-minute manual triage — even an imperfect AI verdict that directs investigation correctly is a massive throughput improvement.</p>
+</blockquote>
+<p><strong>Q: How are campaign IDs stable across re-runs?</strong></p>
+<blockquote>
+<p>Campaign ID is the MD5 hash of the sorted set of member offense IDs. Same members = same ID. If a new offense joins the cluster, the ID changes — by design, signaling the campaign has evolved. This makes campaigns trackable in reporting systems and safe to use as foreign keys.</p>
+</blockquote>
+<p><strong>Q: What is the inference timeout and can it be tuned?</strong></p>
+<blockquote>
+<p>Default is 600 seconds. On slower hardware (older QRadar appliances with fewer CPU cores), token generation may be under 1 token/second. The timeout is configurable under Settings → System Settings → AI Inference Timeout. 900 seconds is recommended for CPU-only deployments on constrained hardware.</p>
+</blockquote>
+<p><strong>Q: Does this work on multi-host QRadar deployments?</strong></p>
+<blockquote>
+<p>The app container runs on the QRadar Console. AQL queries and rule XML fetches go through the standard QRadar API, which handles multi-host event routing transparently. The app doesn't need to be aware of managed host topology.</p>
+</blockquote>
+<hr />
+<h2 id="appendix-b-competitive-comparison">Appendix B — Competitive Comparison<a class="headerlink" href="#appendix-b-competitive-comparison" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>QRadar Offense Intelligence</th>
+<th>Cloud AI (e.g. Azure OpenAI)</th>
+<th>SIEM-native ML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On-device inference</td>
+<td>✅</td>
+<td>❌</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Zero data egress</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Air-gapped support</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Structured 7-section analysis</td>
+<td>✅</td>
+<td>✅ (if built)</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>MITRE ATT&amp;CK tagging</td>
+<td>✅</td>
+<td>✅ (if built)</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Campaign detection</td>
+<td>✅</td>
+<td>Requires separate build</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Investigation workspace</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>SLA management</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>QRadar-native (no integration work)</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Regulated environment deployable</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="appendix-c-slide-timing-summary">Appendix C — Slide Timing Summary<a class="headerlink" href="#appendix-c-slide-timing-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Slide</th>
+<th>Title</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Title</td>
+<td>0:30</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The Problem</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The Status Quo at Scale</td>
+<td>1:30</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Why Existing AI Solutions Don't Solve It</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Introducing QRadar Offense Intelligence</td>
+<td>1:30</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Architecture in One Slide</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>7</td>
+<td>AI Analysis Feature</td>
+<td>3:00</td>
+</tr>
+<tr>
+<td>8</td>
+<td>MITRE ATT&amp;CK</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Campaign Detection</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Relationship Graph</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Investigation Workspace</td>
+<td>1:30</td>
+</tr>
+<tr>
+<td>12</td>
+<td>SLA &amp; Analytics</td>
+<td>1:30</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Zero Data Egress</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Impact</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Deployment</td>
+<td>1:00</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Screenshots Gallery</td>
+<td>1:30</td>
+</tr>
+<tr>
+<td>17</td>
+<td>What This Enables</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Roadmap</td>
+<td>2:00</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Why Now</td>
+<td>1:30</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Call to Action / Q&amp;A</td>
+<td>1:30</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>~33 min</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Adjust by compressing slides 14–16 if running long, or by combining slides 11 and 12 into one.</em></p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/prabirmeher/qradar-offense-intelligence-platform" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
