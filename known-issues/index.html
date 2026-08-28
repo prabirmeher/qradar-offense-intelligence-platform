@@ -803,15 +803,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analysis-output-truncated-on-complex-offenses" class="md-nav__link">
+  <a href="#analysis-output-failed-or-truncated-on-complex-offenses" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Analysis output truncated on complex offenses
+        Analysis output failed or truncated on complex offenses
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Analysis output truncated on complex offenses">
+    <nav class="md-nav" aria-label="Analysis output failed or truncated on complex offenses">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -941,15 +941,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analysis-output-truncated-on-complex-offenses" class="md-nav__link">
+  <a href="#analysis-output-failed-or-truncated-on-complex-offenses" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Analysis output truncated on complex offenses
+        Analysis output failed or truncated on complex offenses
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Analysis output truncated on complex offenses">
+    <nav class="md-nav" aria-label="Analysis output failed or truncated on complex offenses">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1011,11 +1011,11 @@
 <p>This page tracks known issues in shipped releases, along with manual workarounds you can apply while waiting for the fix to reach your appliance. Each entry lists the affected version(s) and the release where the issue is resolved.</p>
 <p>If you hit something not listed here, see <a href="../contributing/">Feedback &amp; Contributing</a>.</p>
 <hr />
-<h2 id="analysis-output-truncated-on-complex-offenses">Analysis output truncated on complex offenses<a class="headerlink" href="#analysis-output-truncated-on-complex-offenses" title="Permanent link">&para;</a></h2>
+<h2 id="analysis-output-failed-or-truncated-on-complex-offenses">Analysis output failed or truncated on complex offenses<a class="headerlink" href="#analysis-output-failed-or-truncated-on-complex-offenses" title="Permanent link">&para;</a></h2>
 <p><strong>Affected versions:</strong> v1.0.0 <br>
 <strong>Status:</strong> <img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2705.svg" title=":white_check_mark:" /> Fixed in upcoming release v1.1.0</p>
 <h3 id="symptom">Symptom<a class="headerlink" href="#symptom" title="Permanent link">&para;</a></h3>
-<p>AI analysis on offenses with several triggering rules and a large number of events sometimes returns a truncated or malformed response — the output cuts off mid-section, or one of the 7 expected sections is missing entirely.</p>
+<p>AI analysis on offenses with several triggering rules and a large number of events sometimes failed or returns a truncated or malformed response — the output cuts off mid-section, or one of the 7 expected sections is missing entirely.</p>
 <h3 id="cause">Cause<a class="headerlink" href="#cause" title="Permanent link">&para;</a></h3>
 <p>The LLM's context window (<code>--ctx-size</code>) is fixed at 4,096 tokens in v1.0.0. Offenses with 3 or more triggering rules and ~25+ events can build a prompt exceeding 11,000 tokens, which gets silently truncated by the model server before generation.</p>
 <h3 id="workaround-v100-only">Workaround (v1.0.0 only)<a class="headerlink" href="#workaround-v100-only" title="Permanent link">&para;</a></h3>
