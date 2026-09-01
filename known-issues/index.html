@@ -1036,7 +1036,7 @@
 <li>Edit the llama-server startup script:
    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>vi<span class="w"> </span>/opt/app-root/container/service/llama_server.sh
 </code></pre></div>
-   Change the <code>--ctx-size</code> value from <code>4096</code> to <code>20000</code>, then save and exit.</li>
+   Change the <code>--ctx-size</code> value from <code>4096</code> to <code>20480</code>, then save and exit.</li>
 <li>Restart the LLM service so the new setting takes effect:
    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>supervisorctl<span class="w"> </span>restart<span class="w"> </span>llama_server
 </code></pre></div></li>
